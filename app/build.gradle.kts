@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.sample.clean"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.sample.clean"
@@ -40,7 +40,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
+        kotlinCompilerExtensionVersion = "1.5.4"
     }
     packaging {
         resources {
@@ -63,10 +63,14 @@ dependencies {
     implementation("io.insert-koin:koin-core:3.5.6")
     // Android 专用扩展（ViewModel、Fragment、Activity 注入）
     implementation("io.insert-koin:koin-android:3.5.6")
+    implementation("io.insert-koin:koin-androidx-compose:3.5.0")
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-
+// Coil 3.x (新)
+    implementation("io.coil-kt.coil3:coil-compose:3.0.4")
+// 必须手动添加网络层，否则无法加载 URL 图片
+    implementation("io.coil-kt.coil3:coil-network-okhttp:3.0.4")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
