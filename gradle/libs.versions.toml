@@ -1,0 +1,48 @@
+[versions]
+
+activityCompose = "1.7.2"
+androidGradlePlugin = "8.2.0"
+appCompat = "1.6.1"
+composeBom = "2023.03.00"
+composeCompiler = "1.5.10"
+coreKtx = "1.9.0"
+espressoCore = "3.5.1"
+extJunit = "1.1.5"
+junit = "4.13.2"
+kotlin = "1.9.22"
+lifecycleRuntimeKtx = "2.6.2"
+koin = "3.5.6"
+koin-compose = "3.5.0"
+retrofit = "2.9.0"
+coil = "3.0.4"
+
+[libraries]
+
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+androidx-app-compat = { module = "androidx.appcompat:appcompat", version.ref = "appCompat" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+androidx-compose-material3 = { module = "androidx.compose.material3:material3" }
+androidx-compose-ui = { module = "androidx.compose.ui:ui" }
+androidx-compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics"}
+androidx-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling"}
+androidx-compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview"}
+androidx-compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4"}
+androidx-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest"}
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCore" }
+androidx-ext-junit = { module = "androidx.test.ext:junit", version.ref = "extJunit" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+junit = { module = "junit:junit", version.ref = "junit" }
+koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin"}
+koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin"}
+koin-androidx-compose = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin-compose"}
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit"}
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit"}
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil"}
+coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coil"}
+
+
+[plugins]
+
+android-application = { id = "com.android.application", version.ref = "androidGradlePlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
