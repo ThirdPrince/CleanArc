@@ -7,8 +7,12 @@ import com.sample.clean.domain.repo.UserRepository
 import com.sample.clean.domain.repo.model.User
 
 class UserRepositoryImpl(private val apiService: ApiService) : UserRepository {
-    override suspend fun getUsers(): List<User> {
-        val userList = apiService.getUsers()
-        return userList.toDomainList()
+    override suspend fun getUsers(): Result<List<User>> {
+        try {
+            val userList = apiService.getUsers()
+            return Result.success(userList.toDomainList())
+        } catch (e: Exception) {
+           return Result.failure(e)
+        }
     }
 }

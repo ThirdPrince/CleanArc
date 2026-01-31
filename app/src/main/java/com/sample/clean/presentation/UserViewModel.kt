@@ -22,7 +22,12 @@ class UserViewModel(private val getUsersUseCase: GetUsersUseCase) : ViewModel() 
         viewModelScope.launch {
             _uiState.value = UserUiState.Loading
             val users = getUsersUseCase()
-            _uiState.value = UserUiState.Success(users)
+            users.onSuccess {
+                _uiState.value = UserUiState.Success(it)
+            }.onFailure {
+                _uiState.value = UserUiState.Error(it.message ?: "Unknown Error")
+            }
+
         }
     }
 }
