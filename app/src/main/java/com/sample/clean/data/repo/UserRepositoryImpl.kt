@@ -9,7 +9,6 @@ import com.sample.clean.domain.repo.model.User
 class UserRepositoryImpl(private val apiService: ApiService) : UserRepository {
     override suspend fun getUsers(): List<User> {
         val userList = apiService.getUsers()
-        Log.e("UserRepositoryImpl", "$userList")
         return userList.toDomainList()
     }
 }

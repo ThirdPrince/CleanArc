@@ -61,7 +61,7 @@ fun UserItem(user: User, onClick: () -> Unit) {
         ) {
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data("https://unsplash.com/photos/a-body-of-water-surrounded-by-forest-under-a-cloudy-sky-r8ZG4Tg_sj0") // 假设你的 User 类有 avatarUrl
+                    .data(user.avatar) //
                     .crossfade(true)      // 开启淡入效果
                     .build(),
                 contentDescription = "User Avatar",

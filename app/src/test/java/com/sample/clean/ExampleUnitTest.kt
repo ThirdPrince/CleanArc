@@ -1,5 +1,6 @@
 package com.sample.clean
 
+import kotlinx.coroutines.runBlocking
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -11,7 +12,7 @@ import org.junit.Assert.*
  */
 class ExampleUnitTest {
     @Test
-    fun addition_isCorrect() {
+    fun addition_isCorrect()  = runBlocking{
         assertEquals(4, 2 + 2)
     }
 }
