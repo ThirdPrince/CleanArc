@@ -1,5 +1,6 @@
 package com.sample.clean.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sample.clean.domain.usecase.GetUsersUseCase
@@ -30,4 +31,10 @@ class UserViewModel(private val getUsersUseCase: GetUsersUseCase) : ViewModel() 
 
         }
     }
+
+    override fun onCleared() {
+        super.onCleared()
+        Log.d("UserRepository", "onClear")
+    }
+
 }
