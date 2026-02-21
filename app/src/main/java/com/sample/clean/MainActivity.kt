@@ -21,9 +21,11 @@ import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
 
+    private val TAG = "MainActivityLifecycle"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("MainActivity", "onCreate called")
+        Log.d(TAG, "onCreate CALLED")
         setContent {
             CleanArcTheme {
                 Surface(
@@ -36,9 +38,25 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    override fun onBackPressed() {
+        Log.d(TAG, "onBackPressed CALLED. Is finishing: $isFinishing")
+        super.onBackPressed() // Call the default behavior
+        Log.d(TAG, "super.onBackPressed() executed. Is finishing now: $isFinishing")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "onPause CALLED")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "onStop CALLED")
+    }
+
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("MainActivity", "onDestroy called! ViewModel should be cleared now.")
+        Log.d(TAG, "onDestroy CALLED - THIS IS WHAT WE EXPECT")
     }
 }
 
