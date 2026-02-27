@@ -1,4 +1,4 @@
-package com.sample.clean
+package com.sample.clean.presentation
 
 import android.os.Bundle
 import android.util.Log
@@ -11,12 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import com.sample.clean.presentation.UserViewModel
-import com.sample.clean.ui.ErrorView
-import com.sample.clean.ui.LoadingView
-import com.sample.clean.ui.UserList
-import com.sample.clean.ui.model.UserUiState
-import com.sample.clean.ui.theme.CleanArcTheme
+import com.sample.clean.presentation.components.ErrorView
+import com.sample.clean.presentation.components.LoadingView
+import com.sample.clean.presentation.components.UserList
+import com.sample.clean.presentation.state.UserUiState
+import com.sample.clean.presentation.theme.CleanArcTheme
 import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {

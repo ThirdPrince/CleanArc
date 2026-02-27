@@ -1,4 +1,4 @@
-package com.sample.clean.ui
+package com.sample.clean.presentation.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

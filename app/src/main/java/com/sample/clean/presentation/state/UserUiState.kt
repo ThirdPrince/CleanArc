@@ -1,4 +1,4 @@
-package com.sample.clean.ui.model
+package com.sample.clean.presentation.state
 
 import com.sample.clean.domain.repo.model.User
 
