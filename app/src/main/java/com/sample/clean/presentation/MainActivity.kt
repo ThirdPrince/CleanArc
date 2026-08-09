@@ -1,16 +1,15 @@
 package com.sample.clean.presentation
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.sample.clean.presentation.components.ErrorView
 import com.sample.clean.presentation.components.LoadingView
 import com.sample.clean.presentation.components.UserList
@@ -20,11 +19,8 @@ import org.koin.androidx.compose.koinViewModel
 
 class MainActivity : ComponentActivity() {
 
-    private val TAG = "MainActivityLifecycle"
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d(TAG, "onCreate CALLED")
         setContent {
             CleanArcTheme {
                 Surface(
@@ -36,32 +32,13 @@ class MainActivity : ComponentActivity() {
             }
         }
     }
-
-    override fun onBackPressed() {
-        Log.d(TAG, "onBackPressed CALLED. Is finishing: $isFinishing")
-        super.onBackPressed() // Call the default behavior
-        Log.d(TAG, "super.onBackPressed() executed. Is finishing now: $isFinishing")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "onPause CALLED")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG, "onStop CALLED")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "onDestroy CALLED - THIS IS WHAT WE EXPECT")
-    }
 }
 
 @Composable
 fun UserListScreen(viewModel: UserViewModel = koinViewModel()) {
-    val state by viewModel.uiState.collectAsState()
+    // 使用 collectAsStateWithLifecycle 安全地观察 UI 状态，它会自动感知生命周期
+    val state by viewModel.uiState.collectAsStateWithLifecycle()
+
     when (val currentState = state) {
         is UserUiState.Loading -> {
             LoadingView()
